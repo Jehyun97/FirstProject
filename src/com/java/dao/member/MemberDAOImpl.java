@@ -1,4 +1,4 @@
-package com.java.dao;
+package com.java.dao.member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.List;
 
 import com.java.command.Criteria;
 import com.java.dataSource.DataSource;
-import com.java.dto.MemberVO;
+import com.java.dto.member.MemberVO;
 
 public class MemberDAOImpl implements MemberDAO {
 

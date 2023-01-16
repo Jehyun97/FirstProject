@@ -1,11 +1,11 @@
-package com.java.service;
+package com.java.service.member;
 
 import java.util.List;
 
 import com.java.command.Criteria;
-import com.java.dao.MemberDAO;
-import com.java.dao.MemberDAOImpl;
-import com.java.dto.MemberVO;
+import com.java.dao.member.MemberDAO;
+import com.java.dao.member.MemberDAOImpl;
+import com.java.dto.member.MemberVO;
 
 public class MemberServiceImpl implements MemberService {
 

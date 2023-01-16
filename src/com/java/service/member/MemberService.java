@@ -1,9 +1,9 @@
-package com.java.service;
+package com.java.service.member;
 
 import java.util.List;
 
 import com.java.command.Criteria;
-import com.java.dto.MemberVO;
+import com.java.dto.member.MemberVO;
 
 public interface MemberService {
 

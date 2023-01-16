@@ -6,10 +6,12 @@ import java.util.Map;
 import com.java.attribute.Session;
 import com.java.command.Criteria;
 import com.java.controller.member.MemberMainController;
-import com.java.dto.MemberVO;
-import com.java.service.MemberService;
-import com.java.service.MemberServiceImpl;
-import com.java.views.MainView;
+import com.java.controller.request.RequestMainController;
+import com.java.controller.storage.StorageMainController;
+import com.java.dto.member.MemberVO;
+import com.java.service.member.MemberService;
+import com.java.service.member.MemberServiceImpl;
+import com.java.views.main.MainView;
 
 public class MainController extends Controller {
 	// 메인화면
@@ -66,10 +68,12 @@ public class MainController extends Controller {
 					// productMainController.execute(null);
 					break;
 				case 3: // 요청공급
-					// orderMainController.execute(null);
+					RequestMainController requestMainController = new RequestMainController();
+					requestMainController.execute(dataMap);
 					break;
 				case 4: // 재고관리
-					// orderMainController.execute(null);
+					StorageMainController storageMainController = new StorageMainController();
+					storageMainController.execute(dataMap);
 					break;
 				case 5: // 로그아웃
 					session = Session.getSession();

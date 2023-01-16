@@ -1,13 +1,15 @@
-package com.java.views;
+package com.java.views.main;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 import com.java.attribute.Session;
-import com.java.dto.MemberVO;
+import com.java.dto.member.MemberVO;
+import com.java.views.View;
 
 public class MainView extends View {
+
 	private MemberVO loginUser;
 	{
 
@@ -93,7 +95,6 @@ public class MainView extends View {
 			dataMap.put("flag", flag);
 			dataMap.put("menu", menu);
 
-		
 			return dataMap;
 		}
 		return null;

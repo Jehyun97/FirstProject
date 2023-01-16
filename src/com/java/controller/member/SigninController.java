@@ -6,9 +6,9 @@ import java.util.Map;
 import com.java.attribute.Session;
 import com.java.command.Criteria;
 import com.java.controller.Controller;
-import com.java.dto.MemberVO;
-import com.java.service.MemberService;
-import com.java.service.MemberServiceImpl;
+import com.java.dto.member.MemberVO;
+import com.java.service.member.MemberService;
+import com.java.service.member.MemberServiceImpl;
 import com.java.views.View;
 import com.java.views.member.LoginFormView;
 

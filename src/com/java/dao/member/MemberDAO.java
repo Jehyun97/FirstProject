@@ -1,10 +1,10 @@
-package com.java.dao;
+package com.java.dao.member;
 
 import java.sql.SQLException;
 import java.util.List;
 
 import com.java.command.Criteria;
-import com.java.dto.MemberVO;
+import com.java.dto.member.MemberVO;
 
 public interface MemberDAO {
 

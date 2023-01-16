@@ -3,9 +3,9 @@ package com.java.controller.member;
 import java.util.Map;
 
 import com.java.controller.Controller;
-import com.java.dto.MemberVO;
-import com.java.service.MemberService;
-import com.java.service.MemberServiceImpl;
+import com.java.dto.member.MemberVO;
+import com.java.service.member.MemberService;
+import com.java.service.member.MemberServiceImpl;
 import com.java.views.member.UpdateMemberView;
 
 public class UpdateMemberController extends Controller {
@@ -29,6 +29,7 @@ public class UpdateMemberController extends Controller {
 		}
 		
 		return null;
+		
 	}
 
 }

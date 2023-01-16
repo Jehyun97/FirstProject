@@ -1,15 +1,13 @@
 package com.java.controller.member;
 
-import java.util.List;
 import java.util.Map;
 
 import com.java.attribute.Session;
 import com.java.command.Criteria;
 import com.java.controller.Controller;
-import com.java.dto.MemberVO;
-import com.java.service.MemberService;
-import com.java.service.MemberServiceImpl;
-import com.java.views.MainView;
+import com.java.service.member.MemberService;
+import com.java.service.member.MemberServiceImpl;
+import com.java.views.main.MainView;
 
 public class MemberMainController extends Controller {
 
@@ -32,17 +30,14 @@ public class MemberMainController extends Controller {
 			cri.setSearchType("");
 
 			Map<String, Object> dataMap = paramMap;
-			List<MemberVO> memberList = null;
 
 			Map<String, Object> returnMap = mainView.view(dataMap);
-			
+
 			flag = (Boolean) returnMap.get("flag");
 
 			if (!flag)
 				// 종료 메뉴 선택 안한경우 계속
 				break;
-
-			
 
 			try {
 
@@ -55,18 +50,21 @@ public class MemberMainController extends Controller {
 
 				switch (menu) {
 				case 1: // 회원정보 조회
-					System.out.println("번호\t이름\t전화번호");
-					memberList = memberService.getMemberList(cri);
-					for (int i = 0; i < memberList.size(); i++) {
-						MemberVO mem = memberList.get(i);
-						System.out.println((i + 1) + "\t" + mem.getName() + "\t" + mem.getPhone());
-					}
+//					System.out.println("번호\t이름\t전화번호");
+//					memberList = memberService.getMemberList(cri);
+//					for (int i = 0; i < memberList.size(); i++) {
+//						MemberVO mem = memberList.get(i);
+//						System.out.println((i + 1) + "\t" + mem.getName() + "\t" + mem.getPhone());
+//					}
+					MemberListController memberViewController = new MemberListController();
+					memberViewController.execute(dataMap);
 					break;
+
 				case 2: // 회원정보 변경
 					UpdateMemberController updateMemberController = new UpdateMemberController();
 					updateMemberController.execute(dataMap);
-
 					break;
+
 				case 3: // 로그아웃
 					session = Session.getSession();
 					session.setAttribute("loginUser", null);

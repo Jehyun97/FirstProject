@@ -55,7 +55,7 @@ public class RequestMainController extends Controller {
 
 				case 1: // 식자재 요청
 					RequestFoodController requestFoodController = new RequestFoodController();
-					returnMap = requestFoodController.execute(foodMap);
+					returnMap = requestFoodController.execute(dataMap);
 					break;
 				case 2: // 요청조회
 					RequestListController requestListController = new RequestListController();

@@ -15,7 +15,7 @@ public class StorageModifyView extends View {
 		Scanner scann = new Scanner(System.in);
 		
 		System.out.println("창고 위치 변경: "); modifyMap.put("s_loc", scann.nextLine().toUpperCase());
-	    System.out.println("------------수정 완료-------------");
+	    System.out.println("==============수정 완료==============");
 	    
 	    return modifyMap;
 	}

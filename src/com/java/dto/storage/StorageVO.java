@@ -5,21 +5,21 @@ import java.util.List;
 import com.java.dto.storage.detail.StorageDtlVO;
 
 public class StorageVO {
-
+	
 	private String s_num;
 	private String id;
 	private int re_num;
 	private String s_loc;
-
+	
 	private List<StorageDtlVO> storagedtlList;
+	
 
-	public StorageVO() {
-	}
-
+	public StorageVO() {}
+	
 	public StorageVO(String s_num, String id) {
 		super();
 		this.s_num = s_num;
-		this.id = id;
+		this.id=id;
 	}
 
 	public String getS_num() {
@@ -54,6 +54,9 @@ public class StorageVO {
 		this.s_loc = s_loc;
 	}
 
+
+	
+	
 	public List<StorageDtlVO> getStoragedtlList() {
 		return storagedtlList;
 	}
@@ -64,7 +67,12 @@ public class StorageVO {
 
 	@Override
 	public String toString() {
-		return s_num + "\t" + id + "\t" + re_num + "\t" + s_loc + "\n";
+		return s_num+"\t"+ id+"\t"+ re_num+"\t"+ s_loc+"\n";
 	}
+	
+	
+	
+	
+	
 
 }

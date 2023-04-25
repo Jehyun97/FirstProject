@@ -15,7 +15,7 @@ public class MemberMainController extends Controller {
 	// 메인화면
 	private MainView mainView = new MainView();
 	// 회원서비스
-	private MemberService memberService = new MemberServiceImpl();
+//	private MemberService memberService = new MemberServiceImpl();
 	// 상품서비스
 	// 주문서비스
 

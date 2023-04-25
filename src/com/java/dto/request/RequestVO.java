@@ -1,12 +1,14 @@
 package com.java.dto.request;
 
+import java.sql.Date;
+
 public class RequestVO {
 
 	private String re_num;
 	private String r_code;
 	private String f_code;
-	private String re_date;
-	private String re_qty;
+	private Date re_date;
+	private int re_qty;
 
 	public RequestVO() {
 	}
@@ -40,19 +42,19 @@ public class RequestVO {
 		this.f_code = f_code;
 	}
 
-	public String getRe_date() {
+	public Date getRe_date() {
 		return re_date;
 	}
 
-	public void setRe_date(String re_date) {
+	public void setRe_date(Date re_date) {
 		this.re_date = re_date;
 	}
 
-	public String getRe_qty() {
+	public int getRe_qty() {
 		return re_qty;
 	}
 
-	public void setRe_qty(String re_qty) {
+	public void setRe_qty(int re_qty) {
 		this.re_qty = re_qty;
 	}
 

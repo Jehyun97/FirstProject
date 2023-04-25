@@ -1,6 +1,7 @@
 package com.java.dao.request;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -27,7 +28,7 @@ public class RequestDAOImpl implements RequestDAO {
 			conn = dataSource.getConnection();
 			stmt = conn.createStatement();
 
-			String sql = "select * from request ";
+			String sql = "select * from request order by re_num desc";
 
 			switch (cri.getSearchType()) {
 			case "r": // 매장명 검색
@@ -88,8 +89,8 @@ public class RequestDAOImpl implements RequestDAO {
 			pstmt.setString(1, request.getRe_num());
 			pstmt.setString(2, request.getR_code());
 			pstmt.setString(3, request.getF_code());
-			pstmt.setString(4, request.getRe_date());
-			pstmt.setString(5, request.getRe_qty());
+			pstmt.setDate(4, (Date)request.getRe_date());
+			pstmt.setInt(5, request.getRe_qty());
 
 			pstmt.executeUpdate();
 
@@ -109,8 +110,8 @@ public class RequestDAOImpl implements RequestDAO {
 			conn = dataSource.getConnection();
 			String sql = "update request" + " set" + " re_qty=?, re_date=?" + " where re_num = ?";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, request.getRe_qty());
-			pstmt.setString(2, request.getRe_date());
+			pstmt.setInt(1, request.getRe_qty());
+			pstmt.setDate(2, (Date) request.getRe_date());
 			pstmt.setString(3, request.getRe_num());
 
 			pstmt.executeUpdate();
@@ -154,8 +155,8 @@ public class RequestDAOImpl implements RequestDAO {
 			request.setRe_num(rs.getString("re_num"));
 			request.setR_code(rs.getString("r_code"));
 			request.setF_code(rs.getString("f_code"));
-			request.setRe_date(rs.getString("re_date"));
-			request.setRe_qty(rs.getString("re_qty"));
+			request.setRe_date(rs.getDate("re_date"));
+			request.setRe_qty(rs.getInt("re_qty"));
 
 			requestList.add(request);
 		}

@@ -5,8 +5,9 @@ import java.util.Map;
 
 import com.java.attribute.Session;
 import com.java.command.Criteria;
+import com.java.controller.food.FoodMainController;
 import com.java.controller.member.MemberMainController;
-import com.java.controller.request.RequestMainController;
+import com.java.controller.restaurant.RestaurantMainController;
 import com.java.controller.storage.StorageMainController;
 import com.java.dto.member.MemberVO;
 import com.java.service.member.MemberService;
@@ -64,18 +65,23 @@ public class MainController extends Controller {
 					session.setAttribute("menu", "main");
 //					flag = (Boolean)returMap.get("flag");					
 					break;
-				case 2: // 입고발주
-					// productMainController.execute(null);
+				case 2: // 주문관리
+					DemandController demandController = new DemandController();
+					demandController.execute(dataMap);
 					break;
-				case 3: // 요청공급
-					RequestMainController requestMainController = new RequestMainController();
-					requestMainController.execute(dataMap);
-					break;
-				case 4: // 재고관리
+				case 3: // 창고관리
 					StorageMainController storageMainController = new StorageMainController();
 					storageMainController.execute(dataMap);
 					break;
-				case 5: // 로그아웃
+				case 4: // 매장관리
+					RestaurantMainController restaurantMainController = new RestaurantMainController();
+					restaurantMainController.execute(dataMap);
+					break;
+				case 5: // 식자재관리
+					FoodMainController foodMainController = new FoodMainController();
+					foodMainController.execute(dataMap);
+					break;
+				case 6: // 로그아웃
 					session = Session.getSession();
 					session.setAttribute("loginUser", null);
 					flag = false;

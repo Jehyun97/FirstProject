@@ -20,7 +20,7 @@ public class StorageModifyController extends Controller {
 		storage = (StorageVO) dataMap.get("storageList"); // search한 창고리스트
 
 		Map<String, Object> paramData = modifyview.view(null);
-		
+
 		try {
 			storage.setS_loc((String) paramData.get("s_loc"));
 

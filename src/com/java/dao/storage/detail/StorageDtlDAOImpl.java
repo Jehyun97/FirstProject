@@ -44,7 +44,7 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 	}
 	
 	@Override
-	public List<StorageDtlVO> selectStorageDtlByCri(Criteria cri) throws SQLException {
+	public List<StorageDtlVO> selectStorageDtlByCri(Criteria cri,String s_num) throws SQLException {
 		List<StorageDtlVO> storageDtlList = null;
 		Connection conn = null;
 		Statement stmt = null;
@@ -56,21 +56,20 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 			stmt = conn.createStatement();
 			
 			String sql = "select s.*,f.f_name from storage_dtl s, food f"
-					    +" where f.f_code = s.f_code and";
+					    +" where f.f_code = s.f_code and s.s_num='"+s_num+"' and";
 			
 			switch(cri.getSearchType()) {
 			case "n" :
-				sql+=" f.f_name like '%' ||'"+cri.getKeyword()+"'||'%'";
+				sql+=" f.f_name like '%"+cri.getKeyword()+"%'";
 				break;
 			case "i" :
-				sql+=" where sd_num like '%' ||'"+cri.getKeyword()+"'||'%'";
+				sql+=" s.sd_num like '%' ||'"+cri.getKeyword()+"'||'%'";
 				break;
 			}
 			
 			rs = stmt.executeQuery(sql);
 			
 			storageDtlList = toStorageDtlList(rs);
-			
 			return storageDtlList;
 			
 			
@@ -118,8 +117,8 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 		try {
 			conn = dataSource.getConnection();
 			String sql = "insert into"
-						+" storage_dtl(sd_num,s_num,f_code,sd_qty,sd_standard,sd_section,sd_date)"
-					    +" values(?,?,?,?,?,?,?)";
+						+" storage_dtl(sd_num,s_num,f_code,sd_qty,sd_standard,sd_section)"
+					    +" values(?,?,?,?,?,?)";
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, storagedtl.getSd_num());
 			pstmt.setString(2, storagedtl.getS_num());
@@ -127,7 +126,7 @@ public class StorageDtlDAOImpl implements StorageDtlDAO {
 			pstmt.setInt(4, storagedtl.getSd_qty());
 			pstmt.setInt(5, storagedtl.getSd_standard());
 			pstmt.setString(6, storagedtl.getSd_section());
-			pstmt.setString(7, storagedtl.getSd_date());
+			//pstmt.setString(7, storagedtl.getSd_date());
 			
 			pstmt.executeUpdate();
 			

@@ -6,6 +6,7 @@ import java.util.List;
 import com.java.command.Criteria;
 import com.java.dto.food.FoodVO;
 
+
 public interface FoodDAO {
 
 	List<FoodVO> selectFoodList(Criteria cri) throws SQLException;

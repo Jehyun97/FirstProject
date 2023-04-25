@@ -12,6 +12,7 @@ import com.java.command.Criteria;
 import com.java.dataSource.DataSource;
 import com.java.dto.food.FoodVO;
 
+
 public class FoodDAOImpl implements FoodDAO {
 
 	private DataSource dataSource = DataSource.getInstance();
@@ -52,8 +53,7 @@ public class FoodDAOImpl implements FoodDAO {
 			e.printStackTrace();
 			throw new SQLException();
 		} finally {
-			if (conn != null)
-				conn.close();
+			if (conn != null)conn.close();
 		}
 
 	}
@@ -80,10 +80,11 @@ public class FoodDAOImpl implements FoodDAO {
 			e.printStackTrace();
 			throw new SQLException();
 		} finally {
-			if (conn != null)
-				conn.close();
+			if (conn != null)conn.close();
 		}
 	}
+	
+	
 
 	@Override
 	public void insertFood(FoodVO food) throws SQLException {
@@ -120,8 +121,7 @@ public class FoodDAOImpl implements FoodDAO {
 		Connection conn = null;
 		try {
 			conn = dataSource.getConnection();
-			String sql = " update food " + " set" + " f_name=?,f_origin=?,f_allergy=?,f_category=?,f_method=?,f_unit=?"
-					+ " where f_code=?";
+			String sql = " update food " + " set" + " f_name=?,f_origin=?,f_allergy=?,f_category=?,f_method=?,f_unit=?" + " where f_code=?";
 
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, food.getFname());

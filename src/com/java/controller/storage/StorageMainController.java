@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.java.command.Criteria;
 import com.java.controller.Controller;
+import com.java.controller.request.StorageFoodListController;
 import com.java.controller.storage.detail.StorageDtlController;
 import com.java.dto.storage.StorageVO;
 import com.java.service.storage.StorageService;
@@ -14,6 +15,7 @@ import com.java.views.storage.StorageMainView;
 
 public class StorageMainController extends Controller {
 
+	private StorageFoodListController StorageFoodListController = new StorageFoodListController();
 	private StorageDtlController storageDtlController = new StorageDtlController();
 	// 창고관리
 //	private StorageModifyController storageModifyController = new StorageModifyController();
@@ -48,19 +50,21 @@ public class StorageMainController extends Controller {
 				int menu = (Integer) returnMap.get("menu");
 
 				switch (menu) {
-				case 1: // 창고상세조회
+				case 1: // 창고입출고 내역 조회
 					storageDtlController.execute(dataMap);
 					break;
-				case 2:// 창고수정
+				case 2:// 창고 정보 수정
 						// storageModifyController.execute(null);
 					storageSearchController.execute(dataMap);
 					break;
-				case 3:// 이전메뉴
+				case 3:// 전체 창고 식재료 수량 보기
+					StorageFoodListController.execute(null);
+					break;
+				case 4:// 뒤로가기
 					break;
 				}
 
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 

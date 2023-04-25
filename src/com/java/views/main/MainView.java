@@ -10,12 +10,13 @@ import com.java.views.View;
 
 public class MainView extends View {
 
-	private MemberVO loginUser;
 	{
 
 		String menu = "================================\n";
 		setMenu(menu);
 	}
+
+	private MemberVO loginUser;
 
 	@Override
 	public Map<String, Object> view(Map<String, Object> param) {
@@ -31,7 +32,7 @@ public class MainView extends View {
 			System.out.println(preMenu);
 
 			System.out.println("메뉴를 입력하세요");
-			System.out.print("[1] 회원관리 [2] 입고발주 [3] 요청공급 [4] 재고관리 [5] 로그아웃 \n");
+			System.out.print("[1] 회원관리 [2] 주문관리 [3] 창고관리 [4] 매장관리 [5] 식자재 관리  [6]로그아웃 \n");
 			Scanner scann = new Scanner(System.in);
 			int menu = scann.nextInt();
 			scann.nextLine();
@@ -46,15 +47,18 @@ public class MainView extends View {
 				message = "회원 관리로 이동합니다.";
 				break;
 			case 2:
-				message = "입고발주로 이동합니다.";
+				message = "주문관리로 이동합니다.";
 				break;
 			case 3:
-				message = "요청공급로 이동합니다.";
+				message = "창고관리로 이동합니다.";
 				break;
 			case 4:
-				message = "재고관리로 이동합니다.";
+				message = "매장관리로 이동합니다.";
 				break;
 			case 5:
+				message = "식자재관리로 이동합니다.";
+				break;
+			case 6:
 				message = "로그아웃 합니다.";
 				flag = false;
 				break;
